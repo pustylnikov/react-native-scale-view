@@ -1,18 +1,37 @@
 {
-  "name": "ScaleView",
-  "version": "0.0.1",
-  "private": true,
+  "name": "@anvilapp/react-native-scale-view",
+  "version": "0.1.0",
+  "description": "react native scale view",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "yura.pustylnikov@gmail.com",
+  "license": "MIT",
+  "homepage": "https://github.com/pustylnikov/react-native-scale-view",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pustylnikov/react-native-scale-view"
+  },
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "build": "./bin/build",
+    "release-dry": "./bin/release-dry",
+    "release": "./bin/release",
+    "pod-install": "npx pod-install",
+    "reinstall-pods": "./bin/reinstall-pods",
+    "reinstall-modules": "./bin/reinstall-node_modules",
+    "clean-android": "./bin/clean-android",
+    "clean-ios": "./bin/clean-ios"
   },
-  "dependencies": {
-    "react": "16.13.1",
-    "react-native": "0.63.2"
+  "peerDependencies": {
+    "react": ">=16.8",
+    "react-native": ">=0.60"
   },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
@@ -23,11 +42,15 @@
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
     "babel-jest": "^25.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^6.5.1",
+    "husky": "^4.2.5",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
-    "react-test-renderer": "16.13.1",
     "prettier": "^2.0.4",
+    "react": "16.13.1",
+    "react-native": "0.63.2",
+    "react-test-renderer": "16.13.1",
     "typescript": "^3.8.3"
   },
   "jest": {
@@ -40,5 +63,13 @@
       "json",
       "node"
     ]
-  }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./bin/pre-commit"
+    }
+  },
+  "files": [
+    "dist/*"
+  ]
 }
